@@ -9,11 +9,85 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/arizona-bootstrap/docs/2.0/assets/css/docs.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
 </head>
 
 <style>
+    #about {
+        overflow: hidden;
+        min-height: 120vh;
+    }
+
+    .about-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('bg_aboutme.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+    }
+
+    #about .container-fluid {
+        z-index: 1;
+        height: 100%;
+    }
+
+    #about .col-lg-6:first-child {
+        padding-top: 20vh;
+        padding-bottom: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #about h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    #about h3 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    #about p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+    .about-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 991px) {
+        #about .col-lg-6:first-child {
+            min-height: 120vh;
+        }
+
+        .about-image {
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    @media (max-height: 700px) {
+        #about .col-lg-6:first-child {
+            padding-top: 15vh;
+        }
+    }
+
+
     .accordion-button:not(.collapsed) {
         background-color: #F8F9FA;
         color: #000000;
@@ -28,25 +102,43 @@
         background-image: #F8F9FA;
     }
 
-    #skillsCarousel .carousel-control-prev,
-    #skillsCarousel .carousel-control-next {
-        width: 5%;
+    .skill-card {
+        background-color: var(--color-light);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 20px;
     }
 
-    #skillsCarousel .carousel-control-prev-icon,
-    #skillsCarousel .carousel-control-next-icon {
-        background-color: #000000;
-        border-radius: 50%;
+    .skill-card i {
+        font-size: 2rem;
+        color: var(--color-primary);
+        margin-bottom: 10px;
     }
 
-    #skillsCarousel .carousel-item {
-        padding: 20px 0;
+    .skill-card h4 {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        margin-bottom: 10px;
     }
 
-    #skillsCarousel .bi {
-        color: #0b1b17;
+    .skill-card p {
+        font-size: 1rem;
+        color: var(--color-primary);
+        margin-bottom: 15px;
     }
 
+    .progress {
+        height: 20px;
+        background-color: var(--color-background);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        background-color: var(--color-primary);
+    }
 </style>
 
 <body>
@@ -84,44 +176,36 @@
                                 Comments <i class="bi bi-chat-left-quote"></i>
                             </a>
                         </li>
-                        <li>
-                            <a href="#contact" class="nav-link text-white">
-                                Contact <i class="bi bi-person-lines-fill"></i>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section id="about" class="container mt-5">
-        <div class="mb-5">
-            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-body-tertiary">
-                <div class=" p-lg-5 mx-auto my-5">
-                    <h1 class="display-3 fw-bold text-center">About Me</h1>
-                    <h3 class="fw-normal text-muted mb-3 text-center">Backend Software Developer</h3>
-                    <div class="row align-items-center">
-                        <div class="col-lg-8">
-                            <p class="text-justify">
-                                I'm an experienced Software Developer working at IBM Mexico, specializing in designing
-                                robust, scalable microservices for efficient cloud deployment. With a three-year track
-                                record in back-end development, I excel in automating and creating high-performance
-                                processes. My Telematics Engineering background ensures optimized systems for
-                                performance,
-                                security, and reliability. I consistently deliver exceptional outcomes and am committed
-                                to
-                                staying current with software development trends.
-                            </p>
-                        </div>
-                        <div class="col-lg-4">
-                            <img src="me.jpg" alt="Kim" class="img-fluid rounded-circle">
-                        </div>
-                    </div>
+    <section id="about" class="mb-5 position-relative">
+        <div class="about-bg"></div>
+        <div class="container-fluid position-relative h-100">
+            <div class="row h-100">
+                <div class="col-lg-6 d-flex flex-column justify-content-center py-7 px-4 px-md-5">
+                    <h1>
+                        <span id="typed"></span>
+                    </h1>
+                    <p>
+                        I'm an experienced Software Developer working at IBM Mexico, specializing in designing
+                        robust, scalable microservices for efficient cloud deployment. With a three-year track
+                        record in back-end development, I excel in automating and creating high-performance
+                        processes. My Telematics Engineering background ensures optimized systems for performance,
+                        security, and reliability. I consistently deliver exceptional outcomes and am committed to
+                        staying current with software development trends.
+                    </p>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <img src="me.jpg" alt="Me" class="about-image">
                 </div>
             </div>
         </div>
     </section>
+
 
     <section id="experience" class="mb-5">
         <h1 class="display-3 fw-bold text-center">Professional Experience</h1>
@@ -130,7 +214,7 @@
             <div class="accordion-item">
                 <h3 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <strong>IBM Mexico</strong>
                     </button>
                 </h3>
@@ -298,38 +382,47 @@
         <div id="skillsCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="d-flex justify-content-around">
-                        <div class="text-center">
-                            <i class="bi bi-code-slash" style="font-size: 3rem;"></i>
-                            <h5 class="mt-2">HTML5</h5>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-cloud-haze2" style="font-size: 3rem;"></i>
-                            <h5 class="mt-2">AI</h5>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-braces" style="font-size: 3rem;"></i>
-                            <h5 class="mt-2">Python</h5>
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <i class="bi bi-gear-fill" style="font-size: 3rem;"></i>
+                                <h3>Software Development</h3>
+                                <p>Python, JavaScript, NodeJS, VueJS</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="bi bi-server" style="font-size: 3rem;"></i>
+                                <h3>Backend Development</h3>
+                                <p>Microservices, API Development, Cloud Deployment</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="bi bi-cloud-fill" style="font-size: 3rem;"></i>
+                                <h3>Cloud Technologies</h3>
+                                <p>IBM Cloud, Kubernetes, Docker</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="d-flex justify-content-around">
-                        <div class="text-center">
-                            <i class="bi bi-cloud" style="font-size: 3rem;"></i>
-                            <h5 class="mt-2">IBM Cloud</h5>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-graph-up" style="font-size: 3rem;"></i>
-                            <h5 class="mt-2">Data Science</h5>
-                        </div>
-                        <div class="text-center">
-                            <i class="bi bi-diagram-3" style="font-size: 3rem;"></i>
-                            <h5 class="mt-2">Microservices</h5>
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <i class="bi bi-shield-lock-fill" style="font-size: 3rem;"></i>
+                                <h3>Security</h3>
+                                <p>IBM Security Verify, IBM Guardium</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="bi bi-code-slash" style="font-size: 3rem;"></i>
+                                <h3>DevOps</h3>
+                                <p>Jenkins, CI/CD, ArgoCD</p>
+                            </div>
+                            <div class="col-md-4">
+                                <i class="bi bi-robot" style="font-size: 3rem;"></i>
+                                <h3>AI & Automation</h3>
+                                <p>WatsonX, IBM Deep Search, spaCy</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Add more carousel-item divs for additional skills -->
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#skillsCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -340,44 +433,35 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
     </section>
+
 
     <section id="feedback" class="mb-5">
-        <h2>Feedback</h2>
-        <blockquote class="blockquote">
-            <p>Feedback quote goes here.</p>
-            <footer class="blockquote-footer">Person Name</footer>
-        </blockquote>
-    </section>
-
-    <section id="contact" class="mb-5 py-5 bg-light">
+        <h1 class="display-3 fw-bold text-center mb-4">Comments</h1>
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    <div class="card shadow-sm">
-                        <div class="card-body p-5">
-                            <h1 class="display-3 fw-bold text-center"">Contact Information</h1>
-
-
-                            <ul class="list-unstyled">
-                                <li class="mb-3">
-                                    E-mail: <a href="mailto:kimliz48@hotmail.com"
-                                        class="text-decoration-none">kimliz48@hotmail.com</a>
-                                </li>
-                                <li class="mb-3">
-                                    Mobile: <a href="tel:+526182698396" class="text-decoration-none">(618) 269 83 06</a>
-                                </li>
-                            </ul>
-                            <div class="d-flex justify-content-center">
-                                <div class="btn-group" role="group" aria-label="Social links">
-                                    <button onclick=" window.open('https://www.credly.com/users/kim-salinas','_blank')"
-                                        type="button" class="btn btn-outline-dark">Credly</button>
-                                    <button onclick=" window.open('https://www.credly.com/users/kim-salinas','_blank')"
-                                        type="button" class="btn btn-outline-dark">GitHub</button>
-                                    <button onclick=" window.open('https://www.linkedin.com/in/kim-lizette/','_blank')"
-                                        type="button" class="btn btn-outline-dark">Linkedin</button>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Cynthia Lomas</h5>
+                            <p class="card-text">"Kimmy's expertise and professionalism are outstanding. Her skills in software development and automation are top-notch!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Abril Rodriguez</h5>
+                            <p class="card-text">"I had a great experience working with Kimmy. Her insights into AI and cloud technologies were invaluable to our project."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Rosalba Villanueva</h5>
+                            <p class="card-text">"Kimmy's dedication and problem-solving skills are impressive. She consistently delivers high-quality results."</p>
                         </div>
                     </div>
                 </div>
@@ -385,36 +469,39 @@
         </div>
     </section>
 
+
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-                    <svg class="bi" width="30" height="24">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
+                © 2024 Kim Lizette Salinas, TECHNOLOCHICAS PRO
             </div>
-
+        
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                 <li class="ms-3">
-                    <a class="text-body-secondary" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                    <a class="text-body-secondary" href="https://www.linkedin.com/in/kim-lizette/" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
                         </svg>
                     </a>
                 </li>
                 <li class="ms-3">
-                    <a class="text-body-secondary" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                        </svg>
+                    <a class="text-body-secondary" href="https://www.credly.com/users/kim-salinas" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-patch-check"></i>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="https://github.com/kimlizette" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="https://www.goodreads.com/user/show/29714875-kim-l" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-book"></i>
                     </a>
                 </li>
             </ul>
         </footer>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -438,6 +525,28 @@
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var typed = new Typed("#typed", {
+            strings: [
+                "Kim Lizette Salinas Villanueva", "Backend Software Developer"
+            ],
+            typeSpeed: 50,
+            backSpeed: 25,
+            backDelay: 3000,
+            startDelay: 500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|',
+            autoInsertCss: true,
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var myCarousel = document.querySelector('#skillsCarousel');
+        var carousel = new bootstrap.Carousel(myCarousel);
+    });
 </script>
+
 
 </html>
